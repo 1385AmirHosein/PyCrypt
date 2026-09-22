@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frmExclusion</class>
+ <widget class="QDialog" name="frmExclusion">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>200</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Mikhak Regular</family>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>استثنائات</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../resources.qrc">
+    <normaloff>:/assets/AppIcon.ico</normaloff>:/assets/AppIcon.ico</iconset>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::RightToLeft</enum>
+  </property>
+  <widget class="QListWidget" name="lstExclusion">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>260</width>
+     <height>180</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>لیست استثنائات</string>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="selectionMode">
+    <enum>QAbstractItemView::MultiSelection</enum>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="cmbExclusion">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>30</y>
+     <width>100</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>فایل</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>پوشه</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>نوع فایل</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="lblExclusion">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>32</y>
+     <width>70</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>نوع استثناء:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txtExclusion">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>100</y>
+     <width>140</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnAddExclusion">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>98</y>
+     <width>60</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>انتخاب فایل یا پوشه</string>
+   </property>
+   <property name="text">
+    <string>جستجو</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnClearExclusion">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>165</y>
+     <width>75</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>پاک کردن لیست استثنائات</string>
+   </property>
+   <property name="text">
+    <string>حذف همه</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnDeleteExclusion">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>165</y>
+     <width>75</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>حذف موارد انتخاب شده در لیست</string>
+   </property>
+   <property name="text">
+    <string>حذف</string>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

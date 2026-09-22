@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PyCrypt</class>
+ <widget class="QMainWindow" name="PyCrypt">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>700</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Mikhak Regular</family>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
+  <property name="acceptDrops">
+   <bool>true</bool>
+  </property>
+  <property name="windowTitle">
+   <string>PyCrypt</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../resources.qrc">
+    <normaloff>:/assets/AppIcon.ico</normaloff>:/assets/AppIcon.ico</iconset>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::RightToLeft</enum>
+  </property>
+  <property name="windowFilePath">
+   <string/>
+  </property>
+  <widget class="QWidget" name="frmMain">
+   <widget class="QGroupBox" name="grpFile">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>0</y>
+      <width>100</width>
+      <height>75</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
+    <property name="title">
+     <string>... انتخاب</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <widget class="QRadioButton" name="rdoFiles">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>25</y>
+       <width>80</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>انتخاب یک یا چند فایل</string>
+     </property>
+     <property name="text">
+      <string>فایل(ها)</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="rdoFolder">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>45</y>
+       <width>80</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>انتخاب یک پوشه و پیدا کردن تمامی فایل ها (به همراه زیر پوشه ها)</string>
+     </property>
+     <property name="text">
+      <string>پوشه</string>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="grpKeyPass">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>85</y>
+      <width>100</width>
+      <height>75</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
+    <property name="title">
+     <string>روش رمزگذاری</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <widget class="QRadioButton" name="rdoKey">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>25</y>
+       <width>80</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>انجام عملیات با یک کلید 32 بایتی</string>
+     </property>
+     <property name="text">
+      <string>کلید</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="rdoPass">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>45</y>
+       <width>80</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>انجام عملیات با پسورد دلخواه شما</string>
+     </property>
+     <property name="text">
+      <string>پسورد</string>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="grpCipher">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>170</y>
+      <width>100</width>
+      <height>75</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
+    <property name="title">
+     <string>نوع عملیات</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <widget class="QRadioButton" name="rdoEncrypt">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>25</y>
+       <width>80</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>رمزگذاری فایل ها با الگوریتم AES-GCM</string>
+     </property>
+     <property name="text">
+      <string>رمزگذاری</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="rdoDecrypt">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>45</y>
+       <width>80</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>رمزگشایی فایل ها با الگوریتم AES-GCM</string>
+     </property>
+     <property name="text">
+      <string>رمزگشایی</string>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QCheckBox" name="chkLog">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>260</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>ثبت گزارشات در یک فایل متنی</string>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
+    <property name="text">
+     <string>ثبت گزارش</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txtPath">
+    <property name="geometry">
+     <rect>
+      <x>355</x>
+      <y>30</y>
+      <width>150</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblPath">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>30</y>
+      <width>60</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
+    <property name="text">
+     <string>آدرس فایل:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnFile">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>28</y>
+      <width>60</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>انتخاب فایل یا پوشه</string>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
+    <property name="text">
+     <string>جستجو</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnKeyPass">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>113</y>
+      <width>60</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
+    <property name="text">
+     <string>جستجو</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txtKeyPass">
+    <property name="geometry">
+     <rect>
+      <x>355</x>
+      <y>115</y>
+      <width>150</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblKeyPass">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>115</y>
+      <width>60</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
+    <property name="text">
+     <string>آدرس کلید:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblLog">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>260</y>
+      <width>60</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
+    <property name="text">
+     <string>آدرس لاگ:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnLog">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>258</y>
+      <width>60</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
+    <property name="text">
+     <string>جستجو</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txtLog">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>355</x>
+      <y>260</y>
+      <width>150</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnCipher">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>170</y>
+      <width>120</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Mikhak Regular</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>شروع عملیات رمزگذاری</string>
+    </property>
+    <property name="text">
+     <string>رمزگذاری</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnGenKeyPass">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>170</y>
+      <width>120</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>ساخت یک کلید 32 بایتی</string>
+    </property>
+    <property name="text">
+     <string>ساخت کلید</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnDeleteAll">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>196</x>
+      <y>220</y>
+      <width>75</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>پاکسازی لیست فایل ها</string>
+    </property>
+    <property name="text">
+     <string>حذف همه</string>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="prgRemaining">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>260</y>
+      <width>130</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdRemaining">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>258</y>
+      <width>65</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>فایل های باقیمانده جهت انجام عملیات</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblRemaining">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>260</y>
+      <width>50</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>فایل های باقیمانده جهت انجام عملیات</string>
+    </property>
+    <property name="text">
+     <string>باقیمانده:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnDelete">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>103</x>
+      <y>220</y>
+      <width>75</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>حذف فایل های انتخاب شده در لیست</string>
+    </property>
+    <property name="text">
+     <string>حذف</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnExclusion">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>220</y>
+      <width>75</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>فایل هایی که عملیات روی آنها انجام نمیشود</string>
+    </property>
+    <property name="text">
+     <string>استثنائات</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkTempFile">
+    <property name="geometry">
+     <rect>
+      <x>465</x>
+      <y>220</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>استفاده از فایل موقت برای اجرای عملیات</string>
+    </property>
+    <property name="text">
+     <string>فایل موقت</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QListView" name="lstFiles">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>260</width>
+      <height>200</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>فایل های انتخاب شده</string>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="selectionMode">
+     <enum>QAbstractItemView::MultiSelection</enum>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
